@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    #root {
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <section id='wrap'>
+      <section id="button"></section>
+      <section id="drop"></section>
+    </section>
+  </div>
+  <script>
+    const root = document.getElementById('root');
+    root.style.display = 'flex';
+    root.style.flexDirection = 'center';
+    root.style.justifyContent = 'center';
+    root.style.alignItems = 'center';
+
+    const wrap = document.getElementById('wrap');
+    const button = document.getElementById('button');
+    button.style.width = '100px';
+    button.style.height= '30px';
+    button.textContent = 'button'
+    button.style.backgroundColor = '#777';
+    button.style.color = 'white';
+
+    let size = 0;
+    const drop = document.getElementById('drop');
+    drop.style.width = '100px';
+    drop.style.height= `${size}px`;
+    drop.style.backgroundColor = 'gainsboro';
+
+    wrap.style.width = '100px';
+    wrap.style.height= '30px';
+    wrap.style.transform = 'rotate(0deg)';
+    let rotateval = 0;
+    
+    button.addEventListener('click', function(){
+      let dropdown = setInterval(function(){
+        size++
+        drop.style.height= `${size}px`;
+        if(size === 100){
+          clearInterval(dropdown);
+
+          let rotate = setInterval(function(){
+            rotateval++
+            wrap.style.transform = `rotate(${rotateval}deg)`;
+            if(rotateval === 360){
+            clearInterval(rotate);
+            }
+          }, 10);
+        }
+      }, 10);
+    });
+  </script>
+</body>
+</html>

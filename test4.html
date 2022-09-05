@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    #root {
+      width: 100vw;
+      height: 100vh;
+      background-color: darkolivegreen;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <section id="target"></section>
+  </div>
+  <script>
+    const targetSec = document.getElementById('target');
+    let size = 0;
+    targetSec.style.width = `${size}px`;
+    targetSec.style.height = `${size}px`;
+    targetSec.style.backgroundColor = 'gainsboro';
+
+    let timer = setInterval(function(){
+      size++
+      targetSec.style.width = `${size}px`;
+      targetSec.style.height = `${size}px`;
+      if(size === 500) {
+      targetSec.style.backgroundColor = 'yellowgreen';
+      targetSec.textContent = '어느순간부터 이해가 가지 않는 때가 옵니다';
+      targetSec.style.transition = '0.4s';
+      }
+      if(size === 1000) {
+        clearInterval(timer);
+      }
+    }, 32);
+    targetSec.style.backgroundColor = '#4872b3';
+  </script>
+</body>
+</html>
