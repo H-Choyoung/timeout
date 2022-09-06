@@ -1,5 +1,4 @@
 <!-- Q-1. 프론트엔드 요청 : "초등학생을 위해서 구구단 표를 HTML에 출력해 주세요. -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,35 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="./algorithm-16.js" type="module" defer></script>
+  <script src="./main.js" type="module" defer></script>
 </head>
 <body>
-  <div id="root"></div>
+<div id="root"></div>
 </body>
-<script>
-  const root = document.getElementById('root');
-
-  function gugudan(value){
-    let resultArray = [];
-    let val = value;
-    if(val>=2 && val<=9){
-      for(let count=1; count<=9; count++){
-        let multi = val*count;
-        let result = val +' x '+ count + ' = '+ multi + ' ';
-        resultArray.push(result);
-        }
-      } return resultArray;
-    }
-  console.log(gugudan(5)); 
-
-  
-  root.textContent = '구구단';
-  for(let i=2; i<=9; i++){
-    let li = document.createElement('li');
-    root.appendChild(li);
-    li.textContent = i +'단: '+ gugudan((i));
-  }
-  
-
-</script>
 </html>
